@@ -51,7 +51,7 @@ public class AgentRegistrationStepDef {
             waitForVisibility(registrationPage.sozlesmeKabulLabel);
             softAssert.assertTrue(registrationPage.sozlesmeKabulLabel.isDisplayed());
         }
-        softAssert.assertAll();
+
     }
 
     @When("The user selects the contract checkbox")
@@ -69,7 +69,7 @@ public class AgentRegistrationStepDef {
     public void theUserShouldBeRedirectedToTheRegistrationFormPage() {
         waitForVisibility(registrationPage.agenteNameInput);
         softAssert.assertTrue(registrationPage.agenteNameInput.isDisplayed());
-        softAssert.assertAll();
+
     }
 
     @When("The user fills out the registration form with valid parametric data")
@@ -97,13 +97,14 @@ public class AgentRegistrationStepDef {
 
     @Then("The user should verify the successful registration message")
     public void theUserShouldVerifyTheSuccessfulRegistrationMessage() {
+        softAssert.assertAll();
     }
 
     @Given("The user is on the contract page")
     public void theUserIsOnTheContractPage() {
         waitForVisibility(registrationPage.sozlesmeKabulLabel);
         softAssert.assertTrue(registrationPage.sozlesmeKabulLabel.isDisplayed());
-        softAssert.assertAll();
+
     }
 
     @When("The user leaves the contract checkbox unchecked")
@@ -114,7 +115,7 @@ public class AgentRegistrationStepDef {
     @Then("The system should display a validation error for the contract")
     public void theSystemShouldDisplayAValidationErrorForTheContract() {
         softAssert.fail("Bir Uyarı mesajı bulunmamaktadır");
-        softAssert.assertAll();
+
     }
 
     @And("The user should not be redirected to the registration form page")
@@ -183,6 +184,7 @@ public class AgentRegistrationStepDef {
                 "Kayıt tamamlanmadığı için kullanıcı hâlâ form sayfasında olmalıdır!"
         );
         System.out.println("✅ Kayıt işlemi tamamlanmadı. Kullanıcı form sayfasında kaldı.");
+        softAssert.assertAll();
     }
 
     @When("the user enters an invalid email format")
@@ -241,7 +243,7 @@ public class AgentRegistrationStepDef {
                 warningFound,
                 "Geçersiz email formatı girildiğinde bir uyarı mesajı gösterilmelidir!"
         );
-        softAssert.assertAll();
+
     }
 
     @And("the user verifies that mandatory fields are highlighted as invalid")
@@ -270,9 +272,9 @@ public class AgentRegistrationStepDef {
             );
             System.out.println("   ❌ " + fieldName + " → class: " + fieldClass);
         }
-        softAssert.assertAll();
+
         System.out.println("✅ Tüm zorunlu alanlar invalid olarak işaretlendi.");
-        softAssert.assertAll();
+
     }
 
     @Then("the user verifies character limits for agency name and mail")
