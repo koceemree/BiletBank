@@ -43,6 +43,7 @@ public class ReusableMethods {
                 System.out.println("teknik bir hata oluştu:");
             }
         }
+        softAssert.assertAll();
     }
 
     // Yeni açılan sekmeye geçiş yapmayı sağlayan dinamik metot
